@@ -1,0 +1,83 @@
+{
+  "main": {
+    "id": "cdf315f3591137a6",
+    "type": "split",
+    "children": [
+      {
+        "id": "d006fd0ee76808b3",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "Parcialito 4.md",
+            "mode": "source"
+          }
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "d46ce5523bfaf9eb",
+    "type": "mobile-drawer",
+    "children": [
+      {
+        "id": "828bea940d5b9008",
+        "type": "leaf",
+        "state": {
+          "type": "file-explorer",
+          "state": {}
+        }
+      },
+      {
+        "id": "43c7b5fedff7c05e",
+        "type": "leaf",
+        "state": {
+          "type": "search",
+          "state": {
+            "query": "",
+            "matchingCase": false,
+            "explainSearch": false,
+            "collapseAll": false,
+            "extraContext": false,
+            "sortOrder": "alphabetical"
+          }
+        }
+      }
+    ],
+    "currentTab": 0
+  },
+  "right": {
+    "id": "54c58b0a53bd6cb0",
+    "type": "mobile-drawer",
+    "children": [
+      {
+        "id": "84397d8620c05543",
+        "type": "leaf",
+        "state": {
+          "type": "backlink",
+          "state": {
+            "file": "Parcialito 4.md",
+            "collapseAll": false,
+            "extraContext": false,
+            "sortOrder": "alphabetical",
+            "showSearch": false,
+            "searchQuery": "",
+            "backlinkCollapsed": false,
+            "unlinkedCollapsed": true
+          }
+        }
+      }
+    ],
+    "currentTab": 0
+  },
+  "active": "d006fd0ee76808b3",
+  "lastOpenFiles": [
+    "Parcialito 4.md",
+    "markdown-cheat-sheet.md",
+    "Pasted image 20210720155224.png",
+    "Ideas TP2.md",
+    "Untitled.md",
+    "Pasted image 20210720160631.png"
+  ]
+}

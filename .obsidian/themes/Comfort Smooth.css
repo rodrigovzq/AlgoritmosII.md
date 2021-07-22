@@ -9,11 +9,17 @@
   --dot-graph: #bbc0c5;
   --text-faint: #a09b80;/* 三角折叠符号;*/
   --text-title-h1: #939bd6;
+  --text-title-h1_preview: #939bd6;
   --text-title-h2: #ba7390;
+  --text-title-h2_preview: #ba7390;
   --text-title-h3: #b78b60;
+  --text-title-h3_preview: #b78b60;
   --text-title-h4: #a79645;/*a79645;*/
+  --text-title-h4_preview: #a79645;
   --text-title-h5: #859676;
+  --text-title-h5_preview: #859676;
   --text-title-h6: #799097; /*#797077;*/
+  --text-title-h6_preview: #799097;
   --text-link: #59a2c5;
   --text-a: #59a2c5;
   --text-a-hover: #b3a14b;
@@ -199,7 +205,7 @@ a,
 {
   color: var(--text-a) !important;
   text-decoration: none !important;
-  font-family: Avenir !important;
+  font-family: Menlo !important;
 }
 
 /* 未创笔记的建链接 */
@@ -645,7 +651,7 @@ but font weight does. */
   font-weight: 500;
   font-size: 28px;
   font-weight: bold;
-  color: var(--text-title-h1);
+  color: var(--text-title-h1_preview);
 }
 
 .markdown-preview-view h2
@@ -654,7 +660,7 @@ but font weight does. */
   font-weight: 500;
   font-size: 26px;
   font-weight: bold;
-  color: var(--text-title-h2);
+  color: var(--text-title-h2_preview);
 }
 
 .markdown-preview-view h3
@@ -663,7 +669,7 @@ but font weight does. */
   font-weight: 500;
   font-size: 23px;
   font-weight: bold;
-  color: var(--text-title-h3);
+  color: var(--text-title-h3_preview);
 }
 
 .markdown-preview-view h4
@@ -672,7 +678,7 @@ but font weight does. */
   font-weight: 500;
   font-size: 20px;
   font-weight: bold;
-  color: var(--text-title-h4);
+  color: var(--text-title-h4_preview);
 }
 
 .markdown-preview-view h5
@@ -681,7 +687,7 @@ but font weight does. */
   font-weight: 500;
   font-size: 18px;
   font-weight: bold;
-  color: var(--text-title-h5);
+  color: var(--text-title-h5_preview);
 }
 
 .markdown-preview-view h6
@@ -690,7 +696,7 @@ but font weight does. */
   font-weight: 500;
   font-size: 16px;
   font-weight: bold;
-  color: var(--text-title-h6);
+  color: var(--text-title-h6_preview);
 }
 
 

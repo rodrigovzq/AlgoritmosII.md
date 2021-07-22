@@ -1,0 +1,2092 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Ejercicios</title>
+        <meta charset='utf-8'/>
+        <style>
+  .theme-dark
+{
+  --background-primary: #2f3136;
+  --background-primary-alt: #3b3f48;/*#464a53;*/
+  --background-secondary: #202225;
+  --background-secondary-alt: #0c1018d1;
+  --text-normal: #bbc0c5;/* 正文 #ccd0d5;#bbc0c5;*/
+  --text-graph: #dde0e5;
+  --dot-graph: #bbc0c5;
+  --text-faint: #a09b80;/* 三角折叠符号;*/
+  --text-title-h1: #939bd6;
+  --text-title-h2: #ba7390;
+  --text-title-h3: #b78b60;
+  --text-title-h4: #a79645;/*a79645;*/
+  --text-title-h5: #859676;
+  --text-title-h6: #799097; /*#797077;*/
+  --text-link: #59a2c5;
+  --text-a: #59a2c5;
+  --text-a-hover: #b3a14b;
+  --text-muted: #bbc0c5;/* 标题非激活状态 #a5a5a5*/
+  --text-mark: #686028;/* 预览高亮*/
+  --pre-code: #272524d9;/* #272524d9*/
+  --text-highlight-bg: #686028;/* 编辑窗口高亮*/
+  --interactive-accent: #a79040; /* 标题栏激活状态亮纹 */
+  --interactive-before: #5e6565;
+  --background-modifier-border: #92a1a17a;
+  --blockquote-border: #6a7070; /* rgba(77, 60, 166, .6);*/
+  --text-accent: #ff9640ba;
+  --interactive-accent-rgb: #fe8019;
+  --text-selection: #406488; /*#682f36;506468;文字选中时的颜色*/
+}
+
+
+/**********************/
+/*graph-view #图谱*/
+/**********************/
+
+#graph-view-canvas .links {
+  stroke: var(--interactive-accent-rgb) !important; /*--interactive-accent-rgb*/
+}
+
+strong {
+  color: #cac4bc;/* #bbc0c5;#ba946d;*/
+  font-weight: 550;
+}
+
+em {
+  color: #baa76d;
+}
+
+mark {
+  background-color: var(--text-mark) !important;
+  padding-top: 2px;
+  padding-bottom: 1px;
+}
+
+
+/**********************/
+/*background of graph view pane*/
+/**********************/
+
+.workspace-leaf-content[data-type = "graph"] .view-content{
+  background-color: var(--background-primary);
+}
+
+/*filled color for the circle when not hover*/
+.graph-view.color-fill {
+  color: #a79040;
+}
+
+/*color for the circle stroke */
+.graph-view.color-circle {
+  color: none;
+}
+
+/*color for the connecting line when not hover*/
+.graph-view.color-line {
+  color: #191935;
+}
+
+/*color for texts*/
+.graph-view.color-text {
+  color: var(--text-graph);
+}
+
+/*filled color for the circle when hover*/
+.graph-view.color-fill-highlight {
+  color: #f3bf88;
+}
+
+/*color for the connecting line when hover*/
+.graph-view.color-line-highlight {
+  color: #59a2c5;
+}
+
+
+/**********************/
+/*blockquote #引用块*/
+/**********************/
+
+/*.markdown-preview-view blockquote, .cm-s-obsidian pre.HyperMD-quote-1 {
+  border:none;
+  border-left: 3px solid currentcolor;
+}*/
+
+
+
+
+
+
+/**********************/
+/*horizontal line #水平线*/
+/**********************/
+
+.markdown-preview-view hr {
+  margin-top: 0.5em;
+  margin-bottom: 24px;
+  height: 1.5px;
+  opacity: 0.5;
+}
+
+
+/**********************/
+/* Odds and Ends #标签*/
+/**********************/
+
+/* Tag pillbox - common settings for editor left, editor right and preview */
+.cm-s-obsidian span.cm-hashtag-begin, 
+.cm-s-obsidian span.cm-hashtag-end,
+a.tag {
+  background-color: #464a53 !important;
+  color: #bbc0c5 !important;
+  padding-bottom: 2px;
+  padding-top: 2px;
+  text-decoration: none;
+  font-family: var(--font-family-editor);
+  font-size: 0.95em;
+}
+
+/* Tag Color in PREVIEW MODE */
+a.tag {
+  background-color: #464a53 !important;
+  border: none;
+  color: #bbc0c5 !important;
+  font-size: 13.5px;
+  padding: 0px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 2px 1px;
+  cursor: pointer;
+  border-radius: 14px;
+}
+
+/* Tag Color in EDITOR MODE */
+.cm-hashtag {
+  color: #799097 !important;
+  border-radius: 0px;
+  background-color: #464a53 !important;
+  padding: 0px 0px;
+  cursor: pointer;
+}
+
+/* Tag editor left side pillbox */
+.cm-s-obsidian span.cm-hashtag-begin {
+	border-top-left-radius: 25px;
+	border-bottom-left-radius: 25px;
+	padding-left: 8px;
+}
+
+/* Tag editor right side pillbox */
+.cm-s-obsidian span.cm-hashtag-end {
+	border-top-right-radius: 25px;
+	border-bottom-right-radius: 25px;
+	padding-right: 10px;
+}
+
+
+/* SEARCH BAR */
+.side-dock-panels-container {
+  background-color: rgb(32, 32, 36) !important;
+  color: #bbc0c5;
+}
+
+
+
+
+/**********************/
+/* links and brackets #超链接*/
+/**********************/
+
+
+/* link */
+a,
+.internal-link,
+.cm-hmd-internal-link,	
+.cm-link,
+.cm-formatting-link
+{
+  color: var(--text-a) !important;
+  text-decoration: none !important;
+  font-family: Avenir !important;
+}
+
+/* 未创笔记的建链接 */
+.markdown-preview-view .internal-link.is-unresolved {
+  color: var(--text-a) !important; /*var(--text-title-h6) !important;*/
+  opacity: 0.75;
+}
+
+/* link hover color */
+a:hover,
+.internal-link:hover
+{
+  color: var(--text-a-hover) !important;
+  text-decoration: none !important;
+}
+
+
+/* make external links italics to differentiate */
+/* a:not(.internal-link) {
+  font-style: italic;
+}*/
+
+
+/* icons at top of panes*/
+.file-view-actions a
+{
+  color: var(--text-muted) !important;
+}
+
+.file-view-actions a:hover
+{
+  color: var(--text-a) !important;
+}
+
+
+
+/* html tags in editor */
+.cm-tag
+{
+  color: var(--text-accent) !important;
+}
+
+/* code blocks in preview */
+pre code
+{
+  padding: 6px !important;
+  line-height: normal;
+  display: block;
+  background-color: var(--pre-code) !important;
+}
+
+.markdown-preview-view pre
+{
+  padding: 0px !important;
+}
+
+/* in-line code for editor and preview and code block for editor*/
+code,
+.cm-inline-code
+{
+  background-color: var(--pre-code) !important;
+  color: var(--text-muted) !important;
+  bottom: 0px !important;
+}
+
+/* code and code blocks for preview */
+.markdown-preview-view code
+{
+  font-size: 13.5px;
+}
+
+/**********/
+/* tables #表格*/
+/**********/
+th
+{
+  font-weight: 800 !important;
+}
+
+thead
+{
+  border-bottom: 2.2px solid var(--background-modifier-border);
+}
+
+.table
+{
+  background-color: var(--background-secondary-alt);
+  border: 1px solid var(--background-modifier-border);
+  padding: 4px;
+  line-height: normal;
+  display: block;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+
+/* embedded images */
+img
+{
+  display: block;
+  margin-left: 0;
+  margin-right: auto;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+
+
+
+
+
+/*************/
+/* checkboxes #任务清单*/
+/*************/
+
+
+
+
+/* task lists! (DEATH AU - I'm proud of this, but could use improvement) */
+.markdown-preview-view .task-list-item-checkbox {
+    -webkit-appearance: none; 
+    top: 3px !important;
+    position: relative;
+    width: 1.15em;
+    height: 1.15em;
+    margin: 1px;
+    box-shadow: 0 0 0.12em #fff900;
+}
+.markdown-preview-view .task-list-item-checkbox:checked::before {
+    content: '✓';
+    position: absolute;
+    color: #c1a601;
+    font-size:1em;
+    line-height: 1.25em;
+    width:1.2em;
+    text-align:center;
+    text-shadow: 0 0 0.5em var(--accent-2);
+}
+
+.markdown-preview-view .task-list-item-checkbox
+{
+  margin-left:7px;
+  left:-6px;
+  filter:none;	
+ /*-去除任务列表框颜色 #任务清单*/
+}
+
+
+/* Editor view - task list, color and veritcal align */
+.cm-s-obsidian span.cm-formatting-task {
+  color: var(--text-accent);
+  font-size: 0.85em;
+  font-weight: 500;
+  position: relative;
+  top: -0.12em;
+}
+
+
+.markdown-preview-view .task-list-item-checkbox
+{
+  top: 0px;
+}
+
+
+.checkbox-container {
+    background-color: #5dbcd2;
+    border-radius: 14px;
+    display: inline-block;
+    height: 22px;
+    position: relative;
+    top: 4px;
+    user-select: none;
+    width: 42px;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.15);
+    transition: background 0.15s ease-in-out, box-shadow 0.15s ease-in-out, border 0.15s ease-in-out, opacity 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+}
+
+.checkbox-container.is-enabled {
+    background-color: #5dbcd2;
+}
+
+.markdown-preview-view mark {
+    color: #bbc0c5;
+    background-color: #5dbcd2;
+    }
+
+
+
+
+
+
+
+
+/*************/
+/* side dock SPECIAL STUFF #侧边栏*/
+/*************/
+
+
+
+
+.side-dock-ribbon-tab, .side-dock-ribbon-action {
+
+}
+.side-dock-ribbon-tab.is-active {
+  color: #bdbaa8 !important;
+}
+.side-dock-ribbon-tab.is-active .side-dock-ribbon-tab-inner:hover {
+  color: #337AB7 !important;
+  background-color: #182026;
+}
+
+.nav-file-title {  
+  color: #aaaaaa !important;/* 文件列表名称颜色 */
+  background-color: rgb(32, 32, 36);
+  }
+
+.nav-folder-title {  
+  color: #bfbfbf !important;
+  background-color: rgb(32, 32, 36);
+  }
+  
+  .nav-file-title:hover {
+  color: #59a2c5 !important;
+}
+
+.search-result-file-title {  
+  color: #d1c1a1 !important; /* 搜索结果标题颜色 */
+  background-color: rgb(32, 32, 36); /* 搜索结果标题背景颜色 */
+  }
+
+.search-result-file-matched-text {  
+  color: #59a2c5 !important;
+  background-color: rgb(32, 32, 36);
+  }
+
+
+.nav-file-tag{ color: #59a2c5; } for the PNG text, but can't specifically target "PNG", just all of those filetype tags.
+.nav-file.is-active .nav-file-tag { color: #59a2c5; }
+
+
+
+
+
+/* side dock text, like file names and backlink context #侧边栏*/
+.side-dock-panels-container *
+{
+  font-size: 13px !important;
+}
+
+
+
+/* side dock titles at top */
+.side-dock-title
+{
+  font-size: 20px !important;
+  font-weight: 800 !important;
+}
+
+
+
+/* hover actions on side dock navigation */
+.side-dock-ribbon-tab:hover,
+.side-dock-ribbon-tab-inner:hover,
+.side-dock-ribbon-action:hover,
+.side-dock-ribbon-action.is-active:hover,
+.nav-action-button:hover,
+.side-dock-collapse-btn:hover
+{
+  color: var(--text-a);
+}
+
+/* condense line spacing on file explorer title list. also avoids character-level word breaks */
+.nav-file-title-content,
+.search-result-file-title,
+.search-result-file-match
+{
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  line-height: normal !important;
+  word-break: keep-all;
+}
+
+/* clean up side bar empty state (e.g. unlinked mentions) */
+.search-empty-state
+{
+  width: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+  line-height: normal;
+}
+
+
+
+
+
+
+/* font for everything outside of editor/preview panes */
+.app-container
+{
+  font-family: var(--font-family-preview);
+}
+
+.status-bar-item
+{
+  font-family: var(--font-family-preview);
+  font-size: 14px;
+}
+
+
+
+
+
+
+
+
+
+
+/******************/
+/* editor section */
+/******************/
+
+
+
+
+/* normal text outside of headings and code #正文 */
+.cm-s-obsidian
+{
+  font-family: var(--font-family-editor);
+  font-size: 15px;
+  color: var(--text-normal);
+  padding-left: 2% !important;
+  padding-right: 2% !important;
+}
+
+.mod-single-child .cm-s-obsidian
+{
+  font-family: var(--font-family-editor);
+  font-size: 15px;
+  color: var(--text-normal);
+  padding-left: 4% !important;
+  padding-right: 4% !important;
+}
+
+/* headings #标题*/
+.cm-header-1
+{
+  font-family: var(--font-family-editor);
+  font-weight: 500;
+  font-size: 28px;
+  font-weight: bold;
+  color: var(--text-title-h1);
+}
+
+.cm-header-2
+{
+  font-family: var(--font-family-editor);
+  font-weight: 500;
+  font-size: 26px;
+  font-weight: bold;
+  color: var(--text-title-h2);
+}
+
+.cm-header-3
+{
+  font-family: var(--font-family-editor);
+  font-weight: 500;
+  font-size: 23px;
+  font-weight: bold;
+  color: var(--text-title-h3);
+}
+
+.cm-header-4
+{
+  font-family: var(--font-family-editor);
+  font-weight: 500;
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--text-title-h4);
+}
+
+.cm-header-5
+{
+  font-family: var(--font-family-editor);
+  font-weight: 500;
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--text-title-h5);
+}
+
+.cm-header-6
+{
+  font-family: var(--font-family-editor);
+  font-weight: 500;
+  font-size: 16px;
+  font-weight: bold;
+  color: var(--text-title-h6);
+}
+
+/* .cm-strong {
+  color: #ba946d;
+  font-weight: bold;
+}*/
+
+.cm-em {
+  color: #baa76d;
+}
+
+/* This is the dashes in bullets. Color does not work, 
+but font weight does. */
+.cm-formatting-list {
+  color: #848994;
+  font-weight: 700;
+} 
+
+
+
+/* Changing size/color of the header hashtags ## */
+.cm-formatting-header {
+/*  color: var(--text-faint);*/
+  font-size: 0.6em; 
+}
+
+
+
+
+
+
+
+/******************/
+/* preview section */
+/******************/
+
+
+
+
+
+
+/* headings #标题*/
+.markdown-preview-view h1
+{
+  font-family: var(--font-family-preview);
+  font-weight: 500;
+  font-size: 28px;
+  font-weight: bold;
+  color: var(--text-title-h1);
+}
+
+.markdown-preview-view h2
+{
+  font-family: var(--font-family-preview);
+  font-weight: 500;
+  font-size: 26px;
+  font-weight: bold;
+  color: var(--text-title-h2);
+}
+
+.markdown-preview-view h3
+{
+  font-family: var(--font-family-preview);
+  font-weight: 500;
+  font-size: 23px;
+  font-weight: bold;
+  color: var(--text-title-h3);
+}
+
+.markdown-preview-view h4
+{
+  font-family: var(--font-family-preview);
+  font-weight: 500;
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--text-title-h4);
+}
+
+.markdown-preview-view h5
+{
+  font-family: var(--font-family-preview);
+  font-weight: 500;
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--text-title-h5);
+}
+
+.markdown-preview-view h6
+{
+  font-family: var(--font-family-preview);
+  font-weight: 500;
+  font-size: 16px;
+  font-weight: bold;
+  color: var(--text-title-h6);
+}
+
+
+
+
+
+
+
+
+/* remove secondary scroll bar in editor that comes from adding variable padding */
+.CodeMirror-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+
+/* clean up side bar empty state (e.g. unlinked mentions) */
+.search-empty-state
+{
+  width: auto;
+  padding-left: 10px;
+  padding-right: 5px;
+  line-height: normal;
+}
+
+
+
+
+
+
+/******************/
+/* Editor Code Appearance #代码块 */
+/******************/
+
+.CodeMirror-code span.cm-inline-code {     
+	color: #e1e2e3 !important;
+}
+
+
+
+    /******************/
+    /* Editor Code - from death-au */
+    /* i think this just adds a border to inline code in editor mode */
+    /******************/
+
+
+.cm-s-obsidian span.cm-inline-code {
+  border: 1px solid #525660;
+  border-radius: 4px;
+  background-color: #555961 !important; 
+}
+.cm-s-obsidian span.cm-formatting-code.cm-inline-code {
+  border-right-width: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.cm-s-obsidian span.cm-formatting-code.cm-inline-code + span.cm-inline-code {
+  border-right: none;
+  border-left: none;
+  border-radius: 0;
+}
+
+.cm-s-obsidian span.cm-formatting-code.cm-inline-code + span.cm-inline-code + span.cm-formatting-code.cm-inline-code {
+  border-left-width: 0;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-right-width: 1px;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+
+/* Editor CodeBlock TEXT Appearance - */
+.cm-s-obsidian pre.HyperMD-codeblock {     
+	color: #e1e2e3 !important;
+}
+
+
+
+
+
+/******************/
+/* Preview Code Appearance #代码块*/
+/******************/
+
+
+
+.markdown-preview-view code {
+color: #d5dadd !important;
+background-color: #555961 !important;  /*预览 Code BG */
+bottom: -0.1px !important;
+}
+
+
+/* Naked Embeds  #嵌入块*/
+/******************/
+.markdown-embed-title { display:none; }
+.markdown-preview-view .markdown-embed-content>:first-child { margin-top: 0; font-size:1em; }/* remove the first heading:display:none; */
+.markdown-preview-view .markdown-embed-content>:last-child { margin-bottom: 0; }
+
+.markdown-preview-view .markdown-embed-content { /* 不限高度，去掉滚动条, not work in v0.9.x */
+  max-height: unset;
+}
+
+.markdown-preview-view .markdown-embed-content {
+  margin-bottom: 0px; margin-top: 0px;  }
+
+.markdown-embed-link {
+color: #59a2c5 !important;
+right: 2px !important;
+}
+
+.markdown-embed-link:hover {
+color: #b3a14b !important;
+}
+
+.markdown-preview-view .markdown-embed /* embed 嵌入格式 */
+{ 
+  border-width: 0.5px;  border-left: 0; border-right: 0;
+  border-radius: 0px; 
+  padding-left: 0px !important; padding-right: 0px !important;
+  margin-top:0px; margin-bottom:0px;
+  background-color: None;
+} /*#323439;*/
+
+.markdown-embed /* embed hover预览格式 */
+{
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+}
+
+
+/*====bigger link popup preview  === #超链接弹窗 =*/
+.popover.hover-popover {
+    transform: scale(0.95); /* makes the content smaller */
+    max-height: 600px;    /* was 300 */
+    min-height: 100px;
+    width: 450px;     /* was 400 */
+    background-color:#39393f;
+    border-color: #59595f;
+}
+
+
+
+/*============隐藏sidebar stripe  ======== #侧边栏  */
+.workspace-ribbon.is-collapsed:not(:hover) .workspace-ribbon-collapse-btn, 
+.workspace-ribbon.is-collapsed:not(:hover) .side-dock-actions, 
+.workspace-ribbon.is-collapsed:not(:hover) .side-dock-settings {display:none;}
+.workspace-ribbon.is-collapsed:not(:hover) {width: 0;}
+.workspace-split.mod-left-split[style="width: 0px;"] {margin-left: 0;}
+.workspace-split.mod-right-split[style="width: 0px;"] {margin-right: 0;}
+.workspace-ribbon {transition: none}
+
+
+/*---------------------------------*/
+/* BULLET POINT RELATIONSHIP LINES #列表 */
+/*---------------------------------*/
+.cm-hmd-list-indent .cm-tab,
+ul ul {
+  position: relative;
+}
+.cm-hmd-list-indent .cm-tab::before,
+ul ul::before {
+  content: "";
+  border-left: 1px solid rgba(100, 100, 120, 0.6);/*最后一个数为透明度*/
+  position: absolute;
+}
+.cm-hmd-list-indent .cm-tab::before {
+  left: 3.5px; /* 调节编辑模式下线的左缩进 */
+  top: -4.5px;
+  bottom: -4px;
+}
+ul ul::before {
+  left: -13px; /* 调节预览模式下线的左缩进 */
+  top: 0;
+  bottom: 0;
+}
+
+.cm-hmd-list-indent .cm-tab,
+ol ol { /* 有序列表 */
+  position: relative;
+}
+.cm-hmd-list-indent .cm-tab::before,
+ol ol::before {
+  content: "";
+  border-left: 1px solid rgba(100, 100, 120, 0.6);/*最后一个数为透明度*/
+  position: absolute;
+}
+.cm-hmd-list-indent .cm-tab::before {
+  left: 3.5px; /* 调节编辑模式下线的左缩进 */
+  top: -4.5px;
+  bottom: -4px;
+}
+ol ol::before {
+  left: -13px; /* 调节预览模式下线的左缩进 */
+  top: 0;
+  bottom: 0;
+}
+
+.cm-hmd-list-indent .cm-tab,
+ol ul { /* 有序列表 */
+  position: relative;
+}
+.cm-hmd-list-indent .cm-tab::before,
+ol ul::before {
+  content: "";
+  border-left: 1px solid rgba(100, 100, 120, 0.6);/*最后一个数为透明度*/
+  position: absolute;
+}
+.cm-hmd-list-indent .cm-tab::before {
+  left: 3.5px; /* 调节编辑模式下线的左缩进 */
+  top: -4.5px;
+  bottom: -4px;
+}
+ol ul::before {
+  left: -13px; /* 调节预览模式下线的左缩进 */
+  top: 0;
+  bottom: 0;
+}
+
+.cm-hmd-list-indent .cm-tab,
+ul ol { /* 有序列表 */
+  position: relative;
+}
+.cm-hmd-list-indent .cm-tab::before,
+ul ol::before {
+  content: "";
+  border-left: 1px solid rgba(100, 100, 120, 0.6);/*最后一个数为透明度*/
+  position: absolute;
+}
+.cm-hmd-list-indent .cm-tab::before {
+  left: 3.5px; /* 调节编辑模式下线的左缩进 */
+  top: -4.5px;
+  bottom: -4px;
+}
+ul ol::before {
+  left: -13px; /* 调节预览模式下线的左缩进 */
+  top: 0;
+  bottom: 0;
+}
+
+
+/*-------------------------------------*/
+ /* 在编辑模式中将无序 #列表 转化为圆点 */
+/*-------------------------------------*/
+ /* Unordered lists: turn into bullets as you type in edit mode */
+span.cm-formatting-list-ul {
+    visibility: hidden !important;
+   }
+  /*hieu: no idea if this would affect preview bullet color, but some useful css to play with? */    
+span.cm-formatting-list-ul:before {
+    content: '• ';
+    color: var(--text-normal); /*change to your color pref */
+    visibility: visible !important;
+    margin-left: 0.1rem;  /* 调节点的右缩进 */
+    margin-right: -0.22rem;  /*调文字的左缩进 */
+    padding-inline-start: 0px;
+   }
+
+
+
+/*-------------------------------------*/
+/* 减少 #列表 缩进 Ajust list indent In preview mode*/
+/*-------------------------------------*/
+ol {
+    padding-inline-start: 30px;
+}
+ul {
+    padding-inline-start: 30px;
+}
+
+/*-------------------------------------*/
+ /* #大纲面板 的关系线 #侧边栏 relationship line of outline */
+/*-------------------------------------*/
+.outline .collapsible-item-children {
+   margin-left: 20px;
+   border-left: 1px solid rgba(165,165,165,0.2);
+   transition:all 0.5s ease-in-out;
+
+  padding-left: 6px;
+}
+
+
+/*-------------------------------------*/
+ /* #水平线 所见即所得 hr line*/
+/*-------------------------------------*/
+div:not(.CodeMirror-activeline)>.CodeMirror-line span.cm-hr {
+    color: transparent;
+}
+
+div:not(.CodeMirror-activeline)>.CodeMirror-line span.cm-hr:after {
+    content: "";
+    position: absolute;
+    height: 1px;
+    width: 100%;
+    background: var(--text-selection);
+    left: 0;
+    top: 50%;
+    opacity: 0.8;
+}
+
+/*-------------------------------------*/
+ /* #引用块 （Quote block WYSIWYG）见即所得 */
+/*-------------------------------------*/
+div:not(.CodeMirror-activeline)>.CodeMirror-line span.cm-formatting-quote {
+    color: transparent;
+}
+
+div:not(.CodeMirror-activeline)>.HyperMD-quote {
+    border-left: 5px solid var(--blockquote-border);
+    padding-left: 13px !important;
+    margin-left: 0px;
+    margin-top: 0em;
+}
+
+/*-------------------------------------*/
+ /* #引用块 在空一行（>）时将空行以间隔其显示出来 */
+/*-------------------------------------*/
+blockquote, p:not(:last-child) {
+    padding-bottom: 0.7em;
+}
+
+
+
+/*-------------------------------------*/
+ /* Clutter free edit mode，标记符号 #所见即所得*/
+/*-------------------------------------*/
+/* inline formatting, link targets and [[ ]] disappears if not active line*/
+div:not(.CodeMirror-activeline)>.CodeMirror-line span.cm-string.cm-url,
+div:not(.CodeMirror-activeline)>.CodeMirror-line span.cm-hmd-barelink,
+/*div:not(.CodeMirror-activeline)>.CodeMirror-line span.cm-comment*/ {
+    display: none !important;
+}
+/* highlight (==) not visible anymore if not active line */
+div:not(.CodeMirror-activeline) > .CodeMirror-line .cm-formatting-highlight.cm-highlight {
+   font-size: 1em;
+   color: transparent;
+}
+
+
+
+
+/* Make subtler folding gutter arrows#折叠箭头 */
+.CodeMirror-foldgutter-folded:after, .CodeMirror-foldgutter-open:after {
+  opacity: 0.8;
+  font-size: 50%;
+}
+
+.CodeMirror-foldgutter-folded:hover:after, .CodeMirror-foldgutter-open:hover:after {
+  opacity: 1;
+  font-size: 50%;
+}
+
+.CodeMirror-foldgutter-folded:after {
+  content: "\25BA";
+}
+
+.CodeMirror-foldgutter-open:after {
+  content: "\25BC";
+} 
+.pandoc-plugin-error {
+    color: red;
+}
+ .CtxtMenu_InfoClose {  top:.2em; right:.2em;}
+.CtxtMenu_InfoContent {  overflow:auto; text-align:left; font-size:80%;  padding:.4em .6em; border:1px inset; margin:1em 0px;  max-height:20em; max-width:30em; background-color:#EEEEEE;  white-space:normal;}
+.CtxtMenu_Info.CtxtMenu_MousePost {outline:none;}
+.CtxtMenu_Info {  position:fixed; left:50%; width:auto; text-align:center;  border:3px outset; padding:1em 2em; background-color:#DDDDDD;  color:black;  cursor:default; font-family:message-box; font-size:120%;  font-style:normal; text-indent:0; text-transform:none;  line-height:normal; letter-spacing:normal; word-spacing:normal;  word-wrap:normal; white-space:nowrap; float:none; z-index:201;  border-radius: 15px;                     /* Opera 10.5 and IE9 */  -webkit-border-radius:15px;               /* Safari and Chrome */  -moz-border-radius:15px;                  /* Firefox */  -khtml-border-radius:15px;                /* Konqueror */  box-shadow:0px 10px 20px #808080;         /* Opera 10.5 and IE9 */  -webkit-box-shadow:0px 10px 20px #808080; /* Safari 3 & Chrome */  -moz-box-shadow:0px 10px 20px #808080;    /* Forefox 3.5 */  -khtml-box-shadow:0px 10px 20px #808080;  /* Konqueror */  filter:progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color="gray", Positive="true"); /* IE */}
+ .CtxtMenu_MenuClose {  position:absolute;  cursor:pointer;  display:inline-block;  border:2px solid #AAA;  border-radius:18px;  -webkit-border-radius: 18px;             /* Safari and Chrome */  -moz-border-radius: 18px;                /* Firefox */  -khtml-border-radius: 18px;              /* Konqueror */  font-family: "Courier New", Courier;  font-size:24px;  color:#F0F0F0}
+.CtxtMenu_MenuClose span {  display:block; background-color:#AAA; border:1.5px solid;  border-radius:18px;  -webkit-border-radius: 18px;             /* Safari and Chrome */  -moz-border-radius: 18px;                /* Firefox */  -khtml-border-radius: 18px;              /* Konqueror */  line-height:0;  padding:8px 0 6px     /* may need to be browser-specific */}
+.CtxtMenu_MenuClose:hover {  color:white!important;  border:2px solid #CCC!important}
+.CtxtMenu_MenuClose:hover span {  background-color:#CCC!important}
+.CtxtMenu_MenuClose:hover:focus {  outline:none}
+ .CtxtMenu_Menu {  position:absolute;  background-color:white;  color:black;  width:auto; padding:5px 0px;  border:1px solid #CCCCCC; margin:0; cursor:default;  font: menu; text-align:left; text-indent:0; text-transform:none;  line-height:normal; letter-spacing:normal; word-spacing:normal;  word-wrap:normal; white-space:nowrap; float:none; z-index:201;  border-radius: 5px;                     /* Opera 10.5 and IE9 */  -webkit-border-radius: 5px;             /* Safari and Chrome */  -moz-border-radius: 5px;                /* Firefox */  -khtml-border-radius: 5px;              /* Konqueror */  box-shadow:0px 10px 20px #808080;         /* Opera 10.5 and IE9 */  -webkit-box-shadow:0px 10px 20px #808080; /* Safari 3 & Chrome */  -moz-box-shadow:0px 10px 20px #808080;    /* Forefox 3.5 */  -khtml-box-shadow:0px 10px 20px #808080;  /* Konqueror */}
+.CtxtMenu_MenuItem {  padding: 1px 2em;  background:transparent;}
+.CtxtMenu_MenuArrow {  position:absolute; right:.5em; padding-top:.25em; color:#666666;  font-family: null; font-size: .75em}
+.CtxtMenu_MenuActive .CtxtMenu_MenuArrow {color:white}
+.CtxtMenu_MenuArrow.CtxtMenu_RTL {left:.5em; right:auto}
+.CtxtMenu_MenuCheck {  position:absolute; left:.7em;  font-family: null}
+.CtxtMenu_MenuCheck.CtxtMenu_RTL { right:.7em; left:auto }
+.CtxtMenu_MenuRadioCheck {  position:absolute; left: .7em;}
+.CtxtMenu_MenuRadioCheck.CtxtMenu_RTL {  right: .7em; left:auto}
+.CtxtMenu_MenuInputBox {  padding-left: 1em; right:.5em; color:#666666;  font-family: null;}
+.CtxtMenu_MenuInputBox.CtxtMenu_RTL {  left: .1em;}
+.CtxtMenu_MenuComboBox {  left:.1em; padding-bottom:.5em;}
+.CtxtMenu_MenuSlider {  left: .1em;}
+.CtxtMenu_SliderValue {  position:absolute; right:.1em; padding-top:.25em; color:#333333;  font-size: .75em}
+.CtxtMenu_SliderBar {  outline: none; background: #d3d3d3}
+.CtxtMenu_MenuLabel {  padding: 1px 2em 3px 1.33em;  font-style:italic}
+.CtxtMenu_MenuRule {  border-top: 1px solid #DDDDDD;  margin: 4px 3px;}
+.CtxtMenu_MenuDisabled {  color:GrayText}
+.CtxtMenu_MenuActive {  background-color: #606872;  color: white;}
+.CtxtMenu_MenuDisabled:focus {  background-color: #E8E8E8}
+.CtxtMenu_MenuLabel:focus {  background-color: #E8E8E8}
+.CtxtMenu_ContextMenu:focus {  outline:none}
+.CtxtMenu_ContextMenu .CtxtMenu_MenuItem:focus {  outline:none}
+.CtxtMenu_SelectionMenu {  position:relative; float:left;  border-bottom: none; -webkit-box-shadow:none; -webkit-border-radius:0px; }
+.CtxtMenu_SelectionItem {  padding-right: 1em;}
+.CtxtMenu_Selection {  right: 40%; width:50%; }
+.CtxtMenu_SelectionBox {  padding: 0em; max-height:20em; max-width: none;  background-color:#FFFFFF;}
+.CtxtMenu_SelectionDivider {  clear: both; border-top: 2px solid #000000;}
+.CtxtMenu_Menu .CtxtMenu_MenuClose {  top:-10px; left:-10px}
+ 
+mjx-container[jax="CHTML"] {
+  line-height: 0;
+}
+
+mjx-container [space="1"] {
+  margin-left: .111em;
+}
+
+mjx-container [space="2"] {
+  margin-left: .167em;
+}
+
+mjx-container [space="3"] {
+  margin-left: .222em;
+}
+
+mjx-container [space="4"] {
+  margin-left: .278em;
+}
+
+mjx-container [space="5"] {
+  margin-left: .333em;
+}
+
+mjx-container [rspace="1"] {
+  margin-right: .111em;
+}
+
+mjx-container [rspace="2"] {
+  margin-right: .167em;
+}
+
+mjx-container [rspace="3"] {
+  margin-right: .222em;
+}
+
+mjx-container [rspace="4"] {
+  margin-right: .278em;
+}
+
+mjx-container [rspace="5"] {
+  margin-right: .333em;
+}
+
+mjx-container [size="s"] {
+  font-size: 70.7%;
+}
+
+mjx-container [size="ss"] {
+  font-size: 50%;
+}
+
+mjx-container [size="Tn"] {
+  font-size: 60%;
+}
+
+mjx-container [size="sm"] {
+  font-size: 85%;
+}
+
+mjx-container [size="lg"] {
+  font-size: 120%;
+}
+
+mjx-container [size="Lg"] {
+  font-size: 144%;
+}
+
+mjx-container [size="LG"] {
+  font-size: 173%;
+}
+
+mjx-container [size="hg"] {
+  font-size: 207%;
+}
+
+mjx-container [size="HG"] {
+  font-size: 249%;
+}
+
+mjx-container [width="full"] {
+  width: 100%;
+}
+
+mjx-box {
+  display: inline-block;
+}
+
+mjx-block {
+  display: block;
+}
+
+mjx-itable {
+  display: inline-table;
+}
+
+mjx-row {
+  display: table-row;
+}
+
+mjx-row > * {
+  display: table-cell;
+}
+
+mjx-mtext {
+  display: inline-block;
+}
+
+mjx-mstyle {
+  display: inline-block;
+}
+
+mjx-merror {
+  display: inline-block;
+  color: red;
+  background-color: yellow;
+}
+
+mjx-mphantom {
+  visibility: hidden;
+}
+
+mjx-assistive-mml {
+  position: absolute !important;
+  top: 0px;
+  left: 0px;
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 1px 0px 0px 0px !important;
+  border: 0px !important;
+  display: block !important;
+  width: auto !important;
+  overflow: hidden !important;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+mjx-assistive-mml[display="block"] {
+  width: 100% !important;
+}
+
+mjx-math {
+  display: inline-block;
+  text-align: left;
+  line-height: 0;
+  text-indent: 0;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 100%;
+  font-size-adjust: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  word-spacing: normal;
+  white-space: nowrap;
+  direction: ltr;
+  padding: 1px 0;
+}
+
+mjx-container[jax="CHTML"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="CHTML"][display="true"][width="full"] {
+  display: flex;
+}
+
+mjx-container[jax="CHTML"][display="true"] mjx-math {
+  padding: 0;
+}
+
+mjx-container[jax="CHTML"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="CHTML"][justify="right"] {
+  text-align: right;
+}
+
+mjx-mi {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-mo {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-stretchy-h {
+  display: inline-table;
+  width: 100%;
+}
+
+mjx-stretchy-h > * {
+  display: table-cell;
+  width: 0;
+}
+
+mjx-stretchy-h > * > mjx-c {
+  display: inline-block;
+  transform: scalex(1.0000001);
+}
+
+mjx-stretchy-h > * > mjx-c::before {
+  display: inline-block;
+  width: initial;
+}
+
+mjx-stretchy-h > mjx-ext {
+  overflow: hidden;
+  width: 100%;
+}
+
+mjx-stretchy-h > mjx-ext > mjx-c::before {
+  transform: scalex(500);
+}
+
+mjx-stretchy-h > mjx-ext > mjx-c {
+  width: 0;
+}
+
+mjx-stretchy-h > mjx-beg > mjx-c {
+  margin-right: -.1em;
+}
+
+mjx-stretchy-h > mjx-end > mjx-c {
+  margin-left: -.1em;
+}
+
+mjx-stretchy-v {
+  display: inline-block;
+}
+
+mjx-stretchy-v > * {
+  display: block;
+}
+
+mjx-stretchy-v > mjx-beg {
+  height: 0;
+}
+
+mjx-stretchy-v > mjx-end > mjx-c {
+  display: block;
+}
+
+mjx-stretchy-v > * > mjx-c {
+  transform: scaley(1.0000001);
+  transform-origin: left center;
+  overflow: hidden;
+}
+
+mjx-stretchy-v > mjx-ext {
+  display: block;
+  height: 100%;
+  box-sizing: border-box;
+  border: 0px solid transparent;
+  overflow: hidden;
+}
+
+mjx-stretchy-v > mjx-ext > mjx-c::before {
+  width: initial;
+  box-sizing: border-box;
+}
+
+mjx-stretchy-v > mjx-ext > mjx-c {
+  transform: scaleY(500) translateY(.075em);
+  overflow: visible;
+}
+
+mjx-mark {
+  display: inline-block;
+  height: 0px;
+}
+
+mjx-mn {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-msub {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-munder {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-over {
+  text-align: left;
+}
+
+mjx-munder:not([limits="false"]) {
+  display: inline-table;
+}
+
+mjx-munder > mjx-row {
+  text-align: left;
+}
+
+mjx-under {
+  padding-bottom: .1em;
+}
+
+mjx-c {
+  display: inline-block;
+}
+
+mjx-utext {
+  display: inline-block;
+  padding: .75em 0 .2em 0;
+}
+
+mjx-c::before {
+  display: block;
+  width: 0;
+}
+
+.MJX-TEX {
+  font-family: MJXZERO, MJXTEX;
+}
+
+.TEX-B {
+  font-family: MJXZERO, MJXTEX-B;
+}
+
+.TEX-I {
+  font-family: MJXZERO, MJXTEX-I;
+}
+
+.TEX-MI {
+  font-family: MJXZERO, MJXTEX-MI;
+}
+
+.TEX-BI {
+  font-family: MJXZERO, MJXTEX-BI;
+}
+
+.TEX-S1 {
+  font-family: MJXZERO, MJXTEX-S1;
+}
+
+.TEX-S2 {
+  font-family: MJXZERO, MJXTEX-S2;
+}
+
+.TEX-S3 {
+  font-family: MJXZERO, MJXTEX-S3;
+}
+
+.TEX-S4 {
+  font-family: MJXZERO, MJXTEX-S4;
+}
+
+.TEX-A {
+  font-family: MJXZERO, MJXTEX-A;
+}
+
+.TEX-C {
+  font-family: MJXZERO, MJXTEX-C;
+}
+
+.TEX-CB {
+  font-family: MJXZERO, MJXTEX-CB;
+}
+
+.TEX-FR {
+  font-family: MJXZERO, MJXTEX-FR;
+}
+
+.TEX-FRB {
+  font-family: MJXZERO, MJXTEX-FRB;
+}
+
+.TEX-SS {
+  font-family: MJXZERO, MJXTEX-SS;
+}
+
+.TEX-SSB {
+  font-family: MJXZERO, MJXTEX-SSB;
+}
+
+.TEX-SSI {
+  font-family: MJXZERO, MJXTEX-SSI;
+}
+
+.TEX-SC {
+  font-family: MJXZERO, MJXTEX-SC;
+}
+
+.TEX-T {
+  font-family: MJXZERO, MJXTEX-T;
+}
+
+.TEX-V {
+  font-family: MJXZERO, MJXTEX-V;
+}
+
+.TEX-VB {
+  font-family: MJXZERO, MJXTEX-VB;
+}
+
+mjx-stretchy-v mjx-c, mjx-stretchy-h mjx-c {
+  font-family: MJXZERO, MJXTEX-S1, MJXTEX-S4, MJXTEX, MJXTEX-A ! important;
+}
+
+@font-face /* 0 */ {
+  font-family: MJXZERO;
+  src: url("app://obsidian.md/lib/mathjax/output/chtml/fonts/woff-v2/MathJax_Zero.woff") format("woff");
+}
+
+@font-face /* 1 */ {
+  font-family: MJXTEX;
+  src: url("app://obsidian.md/lib/mathjax/output/chtml/fonts/woff-v2/MathJax_Main-Regular.woff") format("woff");
+}
+
+@font-face /* 2 */ {
+  font-family: MJXTEX-B;
+  src: url("app://obsidian.md/lib/mathjax/output/chtml/fonts/woff-v2/MathJax_Main-Bold.woff") format("woff");
+}
+
+@font-face /* 3 */ {
+  font-family: MJXTEX-I;
+  src: url("app://obsidian.md/lib/mathjax/output/chtml/fonts/woff-v2/MathJax_Math-Italic.woff") format("woff");
+}
+
+@font-face /* 4 */ {
+  font-family: MJXTEX-MI;
+  src: url("app://obsidian.md/lib/mathjax/output/chtml/fonts/woff-v2/MathJax_Main-Italic.woff") format("woff");
+}
+
+@font-face /* 5 */ {
+  font-family: MJXTEX-BI;
+  src: url("app://obsidian.md/lib/mathjax/output/chtml/fonts/woff-v2/MathJax_Math-BoldItalic.woff") format("woff");
+}
+
+@font-face /* 6 */ {
+  font-family: MJXTEX-S1;
+  src: url("app://obsidian.md/lib/mathjax/output/chtml/fonts/woff-v2/MathJax_Size1-Regular.woff") format("woff");
+}
+
+@font-face /* 7 */ {
+  font-family: MJXTEX-S2;
+  src: url("app://obsidian.md/lib/mathjax/output/chtml/fonts/woff-v2/MathJax_Size2-Regular.woff") format("woff");
+}
+
+@font-face /* 8 */ {
+  font-family: MJXTEX-S3;
+  src: url("app://obsidian.md/lib/mathjax/output/chtml/fonts/woff-v2/MathJax_Size3-Regular.woff") format("woff");
+}
+
+@font-face /* 9 */ {
+  font-family: MJXTEX-S4;
+  src: url("app://obsidian.md/lib/mathjax/output/chtml/fonts/woff-v2/MathJax_Size4-Regular.woff") format("woff");
+}
+
+@font-face /* 10 */ {
+  font-family: MJXTEX-A;
+  src: url("app://obsidian.md/lib/mathjax/output/chtml/fonts/woff-v2/MathJax_AMS-Regular.woff") format("woff");
+}
+
+@font-face /* 11 */ {
+  font-family: MJXTEX-C;
+  src: url("app://obsidian.md/lib/mathjax/output/chtml/fonts/woff-v2/MathJax_Calligraphic-Regular.woff") format("woff");
+}
+
+@font-face /* 12 */ {
+  font-family: MJXTEX-CB;
+  src: url("app://obsidian.md/lib/mathjax/output/chtml/fonts/woff-v2/MathJax_Calligraphic-Bold.woff") format("woff");
+}
+
+@font-face /* 13 */ {
+  font-family: MJXTEX-FR;
+  src: url("app://obsidian.md/lib/mathjax/output/chtml/fonts/woff-v2/MathJax_Fraktur-Regular.woff") format("woff");
+}
+
+@font-face /* 14 */ {
+  font-family: MJXTEX-FRB;
+  src: url("app://obsidian.md/lib/mathjax/output/chtml/fonts/woff-v2/MathJax_Fraktur-Bold.woff") format("woff");
+}
+
+@font-face /* 15 */ {
+  font-family: MJXTEX-SS;
+  src: url("app://obsidian.md/lib/mathjax/output/chtml/fonts/woff-v2/MathJax_SansSerif-Regular.woff") format("woff");
+}
+
+@font-face /* 16 */ {
+  font-family: MJXTEX-SSB;
+  src: url("app://obsidian.md/lib/mathjax/output/chtml/fonts/woff-v2/MathJax_SansSerif-Bold.woff") format("woff");
+}
+
+@font-face /* 17 */ {
+  font-family: MJXTEX-SSI;
+  src: url("app://obsidian.md/lib/mathjax/output/chtml/fonts/woff-v2/MathJax_SansSerif-Italic.woff") format("woff");
+}
+
+@font-face /* 18 */ {
+  font-family: MJXTEX-SC;
+  src: url("app://obsidian.md/lib/mathjax/output/chtml/fonts/woff-v2/MathJax_Script-Regular.woff") format("woff");
+}
+
+@font-face /* 19 */ {
+  font-family: MJXTEX-T;
+  src: url("app://obsidian.md/lib/mathjax/output/chtml/fonts/woff-v2/MathJax_Typewriter-Regular.woff") format("woff");
+}
+
+@font-face /* 20 */ {
+  font-family: MJXTEX-V;
+  src: url("app://obsidian.md/lib/mathjax/output/chtml/fonts/woff-v2/MathJax_Vector-Regular.woff") format("woff");
+}
+
+@font-face /* 21 */ {
+  font-family: MJXTEX-VB;
+  src: url("app://obsidian.md/lib/mathjax/output/chtml/fonts/woff-v2/MathJax_Vector-Bold.woff") format("woff");
+}
+
+mjx-c.mjx-c2E::before {
+  padding: 0.12em 0.278em 0 0;
+  content: ".";
+}
+
+mjx-c.mjx-c31::before {
+  padding: 0.666em 0.5em 0 0;
+  content: "1";
+}
+
+mjx-c.mjx-c32::before {
+  padding: 0.666em 0.5em 0 0;
+  content: "2";
+}
+
+mjx-c.mjx-c33::before {
+  padding: 0.665em 0.5em 0.022em 0;
+  content: "3";
+}
+
+mjx-c.mjx-c3E::before {
+  padding: 0.54em 0.778em 0.04em 0;
+  content: ">";
+}
+
+mjx-c.mjx-c2217::before {
+  padding: 0.465em 0.5em 0 0;
+  content: "\2217";
+}
+
+mjx-c.mjx-c1D436.TEX-I::before {
+  padding: 0.705em 0.76em 0.022em 0;
+  content: "C";
+}
+
+mjx-c.mjx-c1D43E.TEX-I::before {
+  padding: 0.683em 0.889em 0 0;
+  content: "K";
+}
+
+mjx-c.mjx-c1D463.TEX-I::before {
+  padding: 0.443em 0.485em 0.011em 0;
+  content: "v";
+}
+
+mjx-c.mjx-c1D464.TEX-I::before {
+  padding: 0.443em 0.716em 0.011em 0;
+  content: "w";
+}
+ @charset "UTF-8";
+.cm-s-obsidian pre.HyperMD-codeblock span.cm-formatting-code-block {
+  color: var(--text-muted);
+}
+
+.cm-s-obsidian pre.HyperMD-codeblock .cm-keyword {
+  font-weight: normal;
+}
+
+.theme-dark .cm-s-obsidian {
+  /*
+
+  Name:       yoncé
+  Author:     Thomas MacLean (http://github.com/thomasmaclean)
+
+  Original yoncé color scheme by Mina Markham (https://github.com/minamarkham)
+
+  */
+  /**/
+}
+.theme-dark .cm-s-obsidian .cm-hmd-frontmatter,
+.theme-dark .cm-s-obsidian pre.HyperMD-codeblock {
+  color: #d4d4d4;
+}
+.theme-dark .cm-s-obsidian .cm-hmd-frontmatter.cm-keyword,
+.theme-dark .cm-s-obsidian .cm-math.cm-keyword,
+.theme-dark .cm-s-obsidian pre.HyperMD-codeblock .cm-keyword {
+  color: #00A7AA;
+  font-weight: normal;
+}
+.theme-dark .cm-s-obsidian .cm-hmd-frontmatter.cm-atom,
+.theme-dark .cm-s-obsidian .cm-math.cm-atom,
+.theme-dark .cm-s-obsidian pre.HyperMD-codeblock .cm-atom {
+  color: #F39B35;
+}
+.theme-dark .cm-s-obsidian .cm-hmd-frontmatter.cm-number,
+.theme-dark .cm-s-obsidian .cm-math.cm-number,
+.theme-dark .cm-s-obsidian pre.HyperMD-codeblock .cm-number {
+  color: #A06FCA;
+}
+.theme-dark .cm-s-obsidian span.cm-hmd-frontmatter.cm-type,
+.theme-dark .cm-s-obsidian span.cm-math.cm-type,
+.theme-dark .cm-s-obsidian pre.HyperMD-codeblock span.cm-type {
+  color: #A06FCA;
+}
+.theme-dark .cm-s-obsidian .cm-hmd-frontmatter.cm-def,
+.theme-dark .cm-s-obsidian .cm-math.cm-def,
+.theme-dark .cm-s-obsidian pre.HyperMD-codeblock .cm-def {
+  color: #98E342;
+}
+.theme-dark .cm-s-obsidian .cm-hmd-frontmatter.cm-property,
+.theme-dark .cm-s-obsidian .cm-math.cm-property,
+.theme-dark .cm-s-obsidian pre.HyperMD-codeblock .cm-property {
+  color: #D4D4D4;
+}
+.theme-dark .cm-s-obsidian span.cm-hmd-frontmatter.cm-variable,
+.theme-dark .cm-s-obsidian span.cm-math.cm-variable,
+.theme-dark .cm-s-obsidian pre.HyperMD-codeblock span.cm-variable {
+  color: #D4D4D4;
+}
+.theme-dark .cm-s-obsidian span.cm-hmd-frontmatter.cm-variable-2,
+.theme-dark .cm-s-obsidian span.cm-math.cm-variable-2,
+.theme-dark .cm-s-obsidian pre.HyperMD-codeblock span.cm-variable-2 {
+  color: #da7dae;
+}
+.theme-dark .cm-s-obsidian span.cm-hmd-frontmatter.cm-variable-3,
+.theme-dark .cm-s-obsidian span.cm-math.cm-variable-3,
+.theme-dark .cm-s-obsidian pre.HyperMD-codeblock span.cm-variable-3 {
+  color: #A06FCA;
+}
+.theme-dark .cm-s-obsidian .cm-hmd-frontmatter.cm-type.cm-def,
+.theme-dark .cm-s-obsidian .cm-math.cm-type.cm-def,
+.theme-dark .cm-s-obsidian pre.HyperMD-codeblock .cm-type.cm-def {
+  color: #FC4384;
+}
+.theme-dark .cm-s-obsidian .cm-hmd-frontmatter.cm-property.cm-def,
+.theme-dark .cm-s-obsidian .cm-math.cm-property.cm-def,
+.theme-dark .cm-s-obsidian pre.HyperMD-codeblock .cm-property.cm-def {
+  color: #FC4384;
+}
+.theme-dark .cm-s-obsidian .cm-hmd-frontmatter.cm-callee,
+.theme-dark .cm-s-obsidian .cm-math.cm-callee,
+.theme-dark .cm-s-obsidian pre.HyperMD-codeblock .cm-callee {
+  color: #FC4384;
+}
+.theme-dark .cm-s-obsidian .cm-hmd-frontmatter.cm-operator,
+.theme-dark .cm-s-obsidian .cm-math.cm-operator,
+.theme-dark .cm-s-obsidian pre.HyperMD-codeblock .cm-operator {
+  color: #FC4384;
+}
+.theme-dark .cm-s-obsidian .cm-hmd-frontmatter.cm-qualifier,
+.theme-dark .cm-s-obsidian .cm-math.cm-qualifier,
+.theme-dark .cm-s-obsidian pre.HyperMD-codeblock .cm-qualifier {
+  color: #FC4384;
+}
+.theme-dark .cm-s-obsidian .cm-hmd-frontmatter.cm-tag,
+.theme-dark .cm-s-obsidian .cm-math.cm-tag,
+.theme-dark .cm-s-obsidian pre.HyperMD-codeblock .cm-tag {
+  color: #FC4384;
+}
+.theme-dark .cm-s-obsidian .cm-hmd-frontmatter.cm-tag.cm-bracket,
+.theme-dark .cm-s-obsidian .cm-math.cm-tag.cm-bracket,
+.theme-dark .cm-s-obsidian pre.HyperMD-codeblock .cm-tag.cm-bracket {
+  color: #D4D4D4;
+}
+.theme-dark .cm-s-obsidian .cm-hmd-frontmatter.cm-attribute,
+.theme-dark .cm-s-obsidian .cm-math.cm-attribute,
+.theme-dark .cm-s-obsidian pre.HyperMD-codeblock .cm-attribute {
+  color: #A06FCA;
+}
+.theme-dark .cm-s-obsidian .cm-hmd-frontmatter.cm-comment,
+.theme-dark .cm-s-obsidian .cm-math.cm-comment,
+.theme-dark .cm-s-obsidian pre.HyperMD-codeblock .cm-comment {
+  color: #696d70;
+}
+.theme-dark .cm-s-obsidian .cm-hmd-frontmatter.cm-comment.cm-tag,
+.theme-dark .cm-s-obsidian .cm-math.cm-comment.cm-tag,
+.theme-dark .cm-s-obsidian pre.HyperMD-codeblock .cm-comment.cm-tag {
+  color: #FC4384;
+}
+.theme-dark .cm-s-obsidian .cm-hmd-frontmatter.cm-comment.cm-attribute,
+.theme-dark .cm-s-obsidian .cm-math.cm-comment.cm-attribute,
+.theme-dark .cm-s-obsidian pre.HyperMD-codeblock .cm-comment.cm-attribute {
+  color: #D4D4D4;
+}
+.theme-dark .cm-s-obsidian .cm-hmd-frontmatter.cm-string,
+.theme-dark .cm-s-obsidian .cm-math.cm-string,
+.theme-dark .cm-s-obsidian pre.HyperMD-codeblock .cm-string {
+  color: #E6DB74;
+}
+.theme-dark .cm-s-obsidian .cm-hmd-frontmatter.cm-string-2,
+.theme-dark .cm-s-obsidian .cm-math.cm-string-2,
+.theme-dark .cm-s-obsidian pre.HyperMD-codeblock .cm-string-2 {
+  color: #F39B35;
+}
+.theme-dark .cm-s-obsidian .cm-hmd-frontmatter.cm-meta,
+.theme-dark .cm-s-obsidian .cm-math.cm-meta,
+.theme-dark .cm-s-obsidian pre.HyperMD-codeblock .cm-meta {
+  color: #D4D4D4;
+  background: inherit;
+}
+.theme-dark .cm-s-obsidian .cm-hmd-frontmatter.cm-builtin,
+.theme-dark .cm-s-obsidian .cm-math.cm-builtin,
+.theme-dark .cm-s-obsidian pre.HyperMD-codeblock .cm-builtin {
+  color: #FC4384;
+}
+.theme-dark .cm-s-obsidian .cm-hmd-frontmatter.cm-header,
+.theme-dark .cm-s-obsidian .cm-math.cm-header,
+.theme-dark .cm-s-obsidian pre.HyperMD-codeblock .cm-header {
+  color: #da7dae;
+}
+.theme-dark .cm-s-obsidian .cm-hmd-frontmatter.cm-hr,
+.theme-dark .cm-s-obsidian .cm-math.cm-hr,
+.theme-dark .cm-s-obsidian pre.HyperMD-codeblock .cm-hr {
+  color: #98E342;
+}
+.theme-dark .cm-s-obsidian .cm-hmd-frontmatter.cm-link,
+.theme-dark .cm-s-obsidian .cm-math.cm-link,
+.theme-dark .cm-s-obsidian pre.HyperMD-codeblock .cm-link {
+  color: #696d70;
+}
+.theme-dark .cm-s-obsidian .cm-hmd-frontmatter.cm-error,
+.theme-dark .cm-s-obsidian .cm-math.cm-error,
+.theme-dark .cm-s-obsidian pre.HyperMD-codeblock .cm-error {
+  border-bottom: 1px solid #C42412;
+}
+.theme-dark .cm-s-obsidian .cm-hmd-frontmatter.CodeMirror-activeline-background,
+.theme-dark .cm-s-obsidian .cm-math.CodeMirror-activeline-background,
+.theme-dark .cm-s-obsidian pre.HyperMD-codeblock .CodeMirror-activeline-background {
+  background: #272727;
+}
+.theme-dark .cm-s-obsidian .cm-hmd-frontmatter.CodeMirror-matchingbracket,
+.theme-dark .cm-s-obsidian .cm-math.CodeMirror-matchingbracket,
+.theme-dark .cm-s-obsidian pre.HyperMD-codeblock .CodeMirror-matchingbracket {
+  outline: 1px solid grey;
+  color: #D4D4D4 !important;
+} 
+@font-face /* 0 */ {
+  font-family: MJXZERO;
+  src: url("http://cdn.mathjax.org/mathjax/latest/fonts/HTML-CSS/TeX/woff/MathJax_Zero.woff") format("woff");
+}
+
+@font-face /* 1 */ {
+  font-family: MJXTEX;
+  src: url("http://cdn.mathjax.org/mathjax/latest/fonts/HTML-CSS/TeX/woff/MathJax_Main-Regular.woff") format("woff");
+}
+
+@font-face /* 2 */ {
+  font-family: MJXTEX-B;
+  src: url("http://cdn.mathjax.org/mathjax/latest/fonts/HTML-CSS/TeX/woff/MathJax_Main-Bold.woff") format("woff");
+}
+
+@font-face /* 3 */ {
+  font-family: MJXTEX-I;
+  src: url("http://cdn.mathjax.org/mathjax/latest/fonts/HTML-CSS/TeX/woff/MathJax_Math-Italic.woff") format("woff");
+}
+
+@font-face /* 4 */ {
+  font-family: MJXTEX-MI;
+  src: url("http://cdn.mathjax.org/mathjax/latest/fonts/HTML-CSS/TeX/woff/MathJax_Main-Italic.woff") format("woff");
+}
+
+@font-face /* 5 */ {
+  font-family: MJXTEX-BI;
+  src: url("http://cdn.mathjax.org/mathjax/latest/fonts/HTML-CSS/TeX/woff/MathJax_Math-BoldItalic.woff") format("woff");
+}
+
+@font-face /* 6 */ {
+  font-family: MJXTEX-S1;
+  src: url("http://cdn.mathjax.org/mathjax/latest/fonts/HTML-CSS/TeX/woff/MathJax_Size1-Regular.woff") format("woff");
+}
+
+@font-face /* 7 */ {
+  font-family: MJXTEX-S2;
+  src: url("http://cdn.mathjax.org/mathjax/latest/fonts/HTML-CSS/TeX/woff/MathJax_Size2-Regular.woff") format("woff");
+}
+
+@font-face /* 8 */ {
+  font-family: MJXTEX-S3;
+  src: url("http://cdn.mathjax.org/mathjax/latest/fonts/HTML-CSS/TeX/woff/MathJax_Size3-Regular.woff") format("woff");
+}
+
+@font-face /* 9 */ {
+  font-family: MJXTEX-S4;
+  src: url("http://cdn.mathjax.org/mathjax/latest/fonts/HTML-CSS/TeX/woff/MathJax_Size4-Regular.woff") format("woff");
+}
+
+@font-face /* 10 */ {
+  font-family: MJXTEX-A;
+  src: url("http://cdn.mathjax.org/mathjax/latest/fonts/HTML-CSS/TeX/woff/MathJax_AMS-Regular.woff") format("woff");
+}
+
+@font-face /* 11 */ {
+  font-family: MJXTEX-C;
+  src: url("http://cdn.mathjax.org/mathjax/latest/fonts/HTML-CSS/TeX/woff/MathJax_Calligraphic-Regular.woff") format("woff");
+}
+
+@font-face /* 12 */ {
+  font-family: MJXTEX-CB;
+  src: url("http://cdn.mathjax.org/mathjax/latest/fonts/HTML-CSS/TeX/woff/MathJax_Calligraphic-Bold.woff") format("woff");
+}
+
+@font-face /* 13 */ {
+  font-family: MJXTEX-FR;
+  src: url("http://cdn.mathjax.org/mathjax/latest/fonts/HTML-CSS/TeX/woff/MathJax_Fraktur-Regular.woff") format("woff");
+}
+
+@font-face /* 14 */ {
+  font-family: MJXTEX-FRB;
+  src: url("http://cdn.mathjax.org/mathjax/latest/fonts/HTML-CSS/TeX/woff/MathJax_Fraktur-Bold.woff") format("woff");
+}
+
+@font-face /* 15 */ {
+  font-family: MJXTEX-SS;
+  src: url("http://cdn.mathjax.org/mathjax/latest/fonts/HTML-CSS/TeX/woff/MathJax_SansSerif-Regular.woff") format("woff");
+}
+
+@font-face /* 16 */ {
+  font-family: MJXTEX-SSB;
+  src: url("http://cdn.mathjax.org/mathjax/latest/fonts/HTML-CSS/TeX/woff/MathJax_SansSerif-Bold.woff") format("woff");
+}
+
+@font-face /* 17 */ {
+  font-family: MJXTEX-SSI;
+  src: url("http://cdn.mathjax.org/mathjax/latest/fonts/HTML-CSS/TeX/woff/MathJax_SansSerif-Italic.woff") format("woff");
+}
+
+@font-face /* 18 */ {
+  font-family: MJXTEX-SC;
+  src: url("http://cdn.mathjax.org/mathjax/latest/fonts/HTML-CSS/TeX/woff/MathJax_Script-Regular.woff") format("woff");
+}
+
+@font-face /* 19 */ {
+  font-family: MJXTEX-T;
+  src: url("http://cdn.mathjax.org/mathjax/latest/fonts/HTML-CSS/TeX/woff/MathJax_Typewriter-Regular.woff") format("woff");
+}
+
+@font-face /* 20 */ {
+  font-family: MJXTEX-V;
+  src: url("http://cdn.mathjax.org/mathjax/latest/fonts/HTML-CSS/TeX/woff/MathJax_Vector-Regular.woff") format("woff");
+}
+
+@font-face /* 21 */ {
+  font-family: MJXTEX-VB;
+  src: url("http://cdn.mathjax.org/mathjax/latest/fonts/HTML-CSS/TeX/woff/MathJax_Vector-Bold.woff") format("woff");
+}undefined
+</style>
+    </head>
+    <body>
+
+<h1 data-heading="Ejercicios">Ejercicios</h1>
+<h2 data-heading="Prácticos">Prácticos</h2>
+<h3 data-heading="Dado un grafo (viene como : lista de listas, matriz de incidencia, matriz de adyacencia, dibujo). Encontrar el **árbol de tendido mínimo**.">Dado un grafo (viene como : lista de listas, matriz de incidencia, matriz de adyacencia, dibujo). Encontrar el <strong>árbol de tendido mínimo</strong>.</h3>
+<pre><code> PRIM
+    - Empieza de algun vertice y a partir de las aristas que va descubriendo de ese vertice y los siguientes vertices que encuentre. Va a ir trazando nuevas aristas a nuevos vertices que aun no haya vistado. Evita crear ciclos evitando volver a unir aristas ya visitadas.
+    - Logra que sea minimo usando las aristas de menor valor dentro de las conocidas. Usa una estructura de *heap de minimos*. (Dibujar heap como abstracto, no hace falta explicitar estructura).
+    1. Elegir vertice y agregar al heap todas las aristas adyacentes al vertice.
+    2. Desencolar y ver el vertice que se descubrio (fué visitado?). Repetir  con nuevo vertice.
+        - Si desencolamos algo ya visitado, no hay que agregar la arista hacia un vertice ya visitado porque estamos creando un *ciclo*. 
+    3. Repetir hasta que esten todos visitados.
+    4. Desencolar lo que queda en el heap.?
+ KRUSKAL
+    - Ordenar aristas por peso. -&gt; siempre tratar de incluir las aristas de menor peso.
+    - Evita generar ciclos.
+    1. Ordenar las aristas de menor a mayor y desencolar arista agregada a la lista
+    2. *Union/Find*-&gt; find de 2 vertices y preguntar si estan en el mismo arbolito. Sino **unir**. Si estaban unidos, **nada**.
+    3. Repetir hasta que la cantidad de aristas sea uno menos que la cantidad de vertices.
+</code></pre>
+<h3 data-heading="Backtracking">Backtracking</h3>
+<h4 data-heading="Implementar un algoritmo que reciba un grafo, un vertice $v$ y otro $w$, y determine (utilizando backtracking) la cantidad de caminos simples diferentes que hay desde $v$ a $w$.">Implementar un algoritmo que reciba un grafo, un vertice <span class="math math-inline is-loaded"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D463 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>v</mi></math></mjx-assistive-mml></mjx-container></span> y otro <span class="math math-inline is-loaded"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D464 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>w</mi></math></mjx-assistive-mml></mjx-container></span>, y determine (utilizando backtracking) la cantidad de caminos simples diferentes que hay desde <span class="math math-inline is-loaded"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D463 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>v</mi></math></mjx-assistive-mml></mjx-container></span> a <span class="math math-inline is-loaded"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D464 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>w</mi></math></mjx-assistive-mml></mjx-container></span>.</h4>
+<pre class=" language-python"><code class="language-python is-loaded"><span class="token keyword">def</span> <span class="token function">caminos_posibles</span><span class="token punctuation">(</span>grafo<span class="token punctuation">,</span>v<span class="token punctuation">,</span>w<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    visitados <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+    <span class="token keyword">return</span> encontrar_caminos_posibles<span class="token punctuation">(</span>grafo<span class="token punctuation">,</span>v<span class="token punctuation">,</span>w<span class="token punctuation">,</span>visitados<span class="token punctuation">)</span>
+
+<span class="token keyword">def</span> <span class="token function">encontrar_caminos_posibles</span><span class="token punctuation">(</span>grafo<span class="token punctuation">,</span>v<span class="token punctuation">,</span>w<span class="token punctuation">,</span>visitados<span class="token punctuation">)</span><span class="token punctuation">:</span>
+
+    visitados<span class="token punctuation">[</span>v<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">True</span> <span class="token comment"># paso para adelante</span>
+    contador <span class="token operator">=</span> <span class="token number">0</span> 
+    <span class="token keyword">for</span> ady <span class="token keyword">in</span> grafo<span class="token punctuation">.</span>adyacentes<span class="token punctuation">(</span>v<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> ady <span class="token keyword">not</span> <span class="token keyword">in</span> visitados<span class="token punctuation">:</span>
+            cont <span class="token operator">+=</span> encontrar_caminos_posibles<span class="token punctuation">(</span>grafo<span class="token punctuation">,</span>v<span class="token punctuation">,</span>w<span class="token punctuation">,</span>visitados<span class="token punctuation">)</span>
+    
+    visitados<span class="token punctuation">.</span>remove<span class="token punctuation">(</span>v<span class="token punctuation">)</span> <span class="token comment"># paso para atras</span>
+    <span class="token keyword">return</span> contador
+            
+            
+            
+</code></pre>
+<h4 data-heading="Implementar un algoritmo que reciba un grafo, un vertice $v$  otro $w$ y un valor *k*, y determine (utilizando backtracking) la cantidad de caminos simples diferentes que hay desde $v$ a $w$,**siempre y cuando el peso del camino sea menor a k**.">Implementar un algoritmo que reciba un grafo, un vertice <span class="math math-inline is-loaded"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D463 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>v</mi></math></mjx-assistive-mml></mjx-container></span>  otro <span class="math math-inline is-loaded"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D464 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>w</mi></math></mjx-assistive-mml></mjx-container></span> y un valor <em>k</em>, y determine (utilizando backtracking) la cantidad de caminos simples diferentes que hay desde <span class="math math-inline is-loaded"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D463 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>v</mi></math></mjx-assistive-mml></mjx-container></span> a <span class="math math-inline is-loaded"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D464 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>w</mi></math></mjx-assistive-mml></mjx-container></span>,<strong>siempre y cuando el peso del camino sea menor a k</strong>.</h4>
+<pre class=" language-python"><code class="language-python is-loaded"><span class="token keyword">def</span> <span class="token function">caminos_posibles</span><span class="token punctuation">(</span>grafo<span class="token punctuation">,</span>v<span class="token punctuation">,</span>w<span class="token punctuation">,</span>k<span class="token punctuation">,</span> peso<span class="token punctuation">)</span><span class="token punctuation">:</span>
+
+    visitados <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+    <span class="token keyword">return</span> encontrar_caminos_posibles<span class="token punctuation">(</span>grafo<span class="token punctuation">,</span>v<span class="token punctuation">,</span>w<span class="token punctuation">,</span>visitados<span class="token punctuation">,</span>k<span class="token punctuation">,</span>peso<span class="token punctuation">)</span>
+
+<span class="token keyword">def</span> <span class="token function">encontrar_caminos_posibles</span><span class="token punctuation">(</span>grafo<span class="token punctuation">,</span>v<span class="token punctuation">,</span>w<span class="token punctuation">,</span>visitados<span class="token punctuation">,</span>k<span class="token punctuation">,</span>peso<span class="token punctuation">)</span><span class="token punctuation">:</span>
+
+    visitados<span class="token punctuation">[</span>v<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">True</span> <span class="token comment"># paso para adelante</span>
+    contador <span class="token operator">=</span> <span class="token number">0</span> 
+    <span class="token keyword">for</span> ady <span class="token keyword">in</span> grafo<span class="token punctuation">.</span>adyacentes<span class="token punctuation">(</span>v<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        peso <span class="token operator">+=</span> obtener_peso<span class="token punctuation">(</span>v<span class="token punctuation">,</span>ady<span class="token punctuation">)</span>
+        <span class="token keyword">if</span> ady <span class="token keyword">not</span> <span class="token keyword">in</span> visitados <span class="token keyword">and</span> peso <span class="token operator">&lt;=</span> k<span class="token punctuation">:</span>
+            cont <span class="token operator">+=</span> encontrar_caminos_posibles<span class="token punctuation">(</span>grafo<span class="token punctuation">,</span>v<span class="token punctuation">,</span>w<span class="token punctuation">,</span>visitados<span class="token punctuation">,</span>k<span class="token punctuation">,</span>peso<span class="token punctuation">)</span>
+        peso <span class="token operator">-=</span> obtener_peso<span class="token punctuation">(</span>v<span class="token punctuation">,</span>ady<span class="token punctuation">)</span>
+    visitados<span class="token punctuation">.</span>remove<span class="token punctuation">(</span>v<span class="token punctuation">)</span> <span class="token comment"># paso para atras</span>
+    <span class="token keyword">return</span> contador
+            
+            
+            
+</code></pre>
+<h2 data-heading="Teoricos">Teoricos</h2>
+<h3 data-heading="Al aplicar sobre un grafo el algoritmo de Dijkstra para encontrar caminos minimos desde un vertice $v$ cualquiera, se obtiene un árbol definido por el diccionario de padres ( que permite reconstruir dichos caminos minimos). Dicho árbol, es siempre de tendido minimo?">Al aplicar sobre un grafo el algoritmo de Dijkstra para encontrar caminos minimos desde un vertice <span class="math math-inline is-loaded"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D463 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>v</mi></math></mjx-assistive-mml></mjx-container></span> cualquiera, se obtiene un árbol definido por el diccionario de padres ( que permite reconstruir dichos caminos minimos). Dicho árbol, es siempre de tendido minimo?</h3>
+<pre><code>No, porque Dijkstra toma el costo minimo de manera loca, vertice a vertice, y no necesariamente eso forma un arbol de camino minimo.
+</code></pre>
+<h3 data-heading="Al obtener un arbol de tendido minimo de un grafo, se asegura que la suma de los pesos de las aristas sean minimos. Es posibles utilizar el arbol de tendido minimo para encontrar el camino minimo entre dos pares de vertices cuales queira?">Al obtener un arbol de tendido minimo de un grafo, se asegura que la suma de los pesos de las aristas sean minimos. Es posibles utilizar el arbol de tendido minimo para encontrar el camino minimo entre dos pares de vertices cuales queira?</h3>
+<pre><code>No, porque tal ves podes encontrar un camino minimo por aristas que no se encuentran en ese MST particular. Por ejemplo, esa arista puede estar excluida porque formaria un ciclo dentro del MST.
+</code></pre>
+<h3 data-heading="Si un grafo no es pesado, se puede utilizar el algoritmo de Dijkstra para obtener los caminos minimos de dicho grafo?">Si un grafo no es pesado, se puede utilizar el algoritmo de Dijkstra para obtener los caminos minimos de dicho grafo?</h3>
+<pre><code>Si, porque podes poner todos los pesos a 1 y ahi usar Dijkstra. Aunque la opcion optima seria usar BFS.
+</code></pre>
+<h3 data-heading="Maximizacion de Flujo">Maximizacion de Flujo</h3>
+<h4 data-heading="Qué algortimo nos sirve para resolver el problema de Maximizacion de Flujo?">Qué algortimo nos sirve para resolver el problema de Maximizacion de Flujo?</h4>
+<pre><code>Ford Fulkerson
+</code></pre>
+<h4 data-heading="Qué condiciones debe cumplir el grafo para aplicar el agloritmo de Ford Fulkerson">Qué condiciones debe cumplir el grafo para aplicar el agloritmo de Ford Fulkerson</h4>
+<pre><code>- Tenia que tener una sola fuente y un solo sumidero.
+- No tiene que haber bucles.
+- No tiene que haber ciclo de 2 vertices (aristas antiparalelas).
+</code></pre>
+<h3 data-heading="Algoritmo de Ford Fulkerson">Algoritmo de Ford Fulkerson</h3>
+<pre><code>1.  Creo red residual 
+2.  camino = bfs(fuente, sumidero) # en red residual   
+3.  Si no hay camino termino.  
+4.  Si hay camino, saco el valor minimo de todas las aristas del camino. 
+5.  Actualizo las aristas del camino (sumando o restando segun el sentido del bfs). # en red residual  
+6.  Vuelvo a paso 2.
+</code></pre>
+<h4 data-heading="Seguimiento">Seguimiento</h4>
+<ul>
+<li>Parto desde una red residual<br>
+<img alt="Pasted image 20210720155224.png" src="Pasted image 20210720155224.png" class="internal-embed"></li>
+<li>Busco camino e indico flujo -&gt; minimo costo<br>
+<img alt="Pasted image 20210720160035.png" src="Pasted image 20210720160035.png" class="internal-embed"></li>
+<li>El flujo es 4 -&gt; <strong>uso</strong>. Sacar arista del minimo y poner una que vuelve con el uso en todas los vertices del camino. Actualizo las aristas de ida con la resta entre el costo- uso<br>
+<img alt="Pasted image 20210720160202.png" src="Pasted image 20210720160202.png" class="internal-embed"></li>
+<li>Busco otro camino minimo.<br>
+<img alt="Pasted image 20210720160405.png" src="Pasted image 20210720160405.png" class="internal-embed"></li>
+<li>Repito proceso con el minimo que es 6, el flujo es 10.<br>
+<img alt="Pasted image 20210720160521.png" src="Pasted image 20210720160521.png" class="internal-embed"></li>
+<li>Busco otro camino minimo.<br>
+<img alt="Pasted image 20210720160631.png" src="Pasted image 20210720160631.png" class="internal-embed"></li>
+<li>Actualizo red residual con el minimo que es 4, el flujo es 14.<br>
+<img alt="Pasted image 20210720160759.png" src="Pasted image 20210720160759.png" class="internal-embed"></li>
+<li>Con otro camino, actualizo la red con minimo que es 5, el flujo es 19.<br>
+<img alt="Pasted image 20210720160917.png" src="Pasted image 20210720160917.png" class="internal-embed"></li>
+<li>Aca termina porque no hay mas camino minimo.</li>
+<li>Este ejemplo no usa listas de retorno.</li>
+</ul>
+<h3 data-heading="Algoritmo de Dijkstra">Algoritmo de Dijkstra</h3>
+<pre><code>1. Inicializar los pesos de todos los vertices con infinito
+2. Encolar en el heap el origen (peso,clave).
+3. Encolamos los adyacentes con costo del origen + costo de llegar a arista y el origen queda visitado
+4. Desencolo arista (el mas chico de los pesos).
+5. Encolo los adyacentes con costo actualizado desde origen. -&gt; Usar diccionario de costos.
+6. Repetir hasta que esten todos visitados.
+</code></pre>
+<h2 data-heading="Problemas Avanzados">Problemas Avanzados</h2>
+<p>Ya vistos</p>
+<ul>
+<li><del>Lenguaje Alien</del></li>
+<li><del>Cambio de sentido de aristas</del></li>
+<li><del>Biblioteca</del></li>
+<li><em>Arbitrage</em></li>
+</ul>
+<h3 data-heading="Arbitraje">Arbitraje</h3>
+<p>Queremos encontrar un camino ta que <span class="math math-inline is-loaded"><mjx-container class="MathJax" jax="CHTML" style="position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D436 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em; margin-left: -0.045em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-script></mjx-msub><mjx-mo class="mjx-n"><mjx-c class="mjx-c2E"></mjx-c></mjx-mo><mjx-msub space="2"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D436 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em; margin-left: -0.045em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msub><mjx-mo class="mjx-n"><mjx-c class="mjx-c2E"></mjx-c></mjx-mo><mjx-msub space="2"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D436 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em; margin-left: -0.045em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c33"></mjx-c></mjx-mn></mjx-script></mjx-msub><mjx-mo class="mjx-n"><mjx-c class="mjx-c2E"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="2"><mjx-c class="mjx-c2E"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="2"><mjx-c class="mjx-c2E"></mjx-c></mjx-mo><mjx-msub space="2"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D436 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em; margin-left: -0.045em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D43E TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3E"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>C</mi><mn>1</mn></msub><mo>.</mo><msub><mi>C</mi><mn>2</mn></msub><mo>.</mo><msub><mi>C</mi><mn>3</mn></msub><mo>.</mo><mo>.</mo><mo>.</mo><msub><mi>C</mi><mi>K</mi></msub><mo>&gt;</mo><mn>1</mn></math></mjx-assistive-mml></mjx-container></span><br>
+<img alt="Pasted image 20210721185219.png" src="Pasted image 20210721185219.png" class="internal-embed"></p>
+    </body>
+</html>

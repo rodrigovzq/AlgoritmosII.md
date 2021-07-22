@@ -1,7 +1,7 @@
 {
-  "baseFontSize": 13,
+  "baseFontSize": 16,
   "cssTheme": "Comfort Smooth",
-  "obsidianCss": true,
+  "obsidianCss": false,
   "translucency": false,
   "theme": "obsidian"
 }

@@ -1,0 +1,11 @@
+.cm-s-obsidian .HyperMD-codeblock {
+    color: #bbc0c5;
+} 
+
+.cm-s-obsidian span.cm-inline-code  {
+	color: #bbc0c5;
+}
+
+.markdown-preview-view code {
+	color: #bbc0c5;
+}

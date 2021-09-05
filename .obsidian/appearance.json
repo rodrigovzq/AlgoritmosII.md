@@ -1,7 +1,10 @@
 {
   "baseFontSize": 16,
   "cssTheme": "Comfort Smooth",
-  "obsidianCss": false,
+  "obsidianCss": true,
   "translucency": false,
-  "theme": "obsidian"
+  "theme": "obsidian",
+  "enabledCssSnippets": [
+    "codecolor"
+  ]
 }

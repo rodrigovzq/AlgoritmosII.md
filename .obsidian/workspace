@@ -9,8 +9,8 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Parcialito 4/Algoritmos sobre grafos.md",
-            "mode": "source"
+            "file": "Parcialito 4/Recorridos sobre grafos.md",
+            "mode": "preview"
           }
         }
       }
@@ -18,84 +18,77 @@
     "direction": "vertical"
   },
   "left": {
-    "id": "6f1c9b164b89bc51",
-    "type": "split",
+    "id": "e3f6d428a80ca9fa",
+    "type": "mobile-drawer",
     "children": [
       {
-        "id": "a90edc5aea51f1e9",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "0d827a7d506a257b",
-            "type": "leaf",
-            "state": {
-              "type": "file-explorer",
-              "state": {}
-            }
-          },
-          {
-            "id": "4c3c803e7088c681",
-            "type": "leaf",
-            "state": {
-              "type": "search",
-              "state": {
-                "query": "",
-                "matchingCase": false,
-                "explainSearch": false,
-                "collapseAll": false,
-                "extraContext": false,
-                "sortOrder": "alphabetical"
-              }
-            }
+        "id": "92d12dddae29eaf6",
+        "type": "leaf",
+        "state": {
+          "type": "file-explorer",
+          "state": {}
+        }
+      },
+      {
+        "id": "3b0bf3d9cbde44df",
+        "type": "leaf",
+        "state": {
+          "type": "search",
+          "state": {
+            "query": "",
+            "matchingCase": false,
+            "explainSearch": false,
+            "collapseAll": false,
+            "extraContext": false,
+            "sortOrder": "alphabetical"
           }
-        ]
+        }
       }
     ],
-    "direction": "horizontal",
-    "width": 270.0036334991455
+    "currentTab": 0
   },
   "right": {
-    "id": "738fcae13578e4d1",
-    "type": "split",
+    "id": "13c56eb7052e03b8",
+    "type": "mobile-drawer",
     "children": [
       {
-        "id": "bdafb54d47547bf0",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "1f8b7ee04c5d8828",
-            "type": "leaf",
-            "state": {
-              "type": "backlink",
-              "state": {
-                "file": "Parcialito 4/Algoritmos sobre grafos.md",
-                "collapseAll": false,
-                "extraContext": false,
-                "sortOrder": "alphabetical",
-                "showSearch": false,
-                "searchQuery": "",
-                "backlinkCollapsed": false,
-                "unlinkedCollapsed": true
-              }
-            }
+        "id": "5fb6efaa98b28851",
+        "type": "leaf",
+        "state": {
+          "type": "backlink",
+          "state": {
+            "file": "Parcialito 4/Recorridos sobre grafos.md",
+            "collapseAll": false,
+            "extraContext": false,
+            "sortOrder": "alphabetical",
+            "showSearch": false,
+            "searchQuery": "",
+            "backlinkCollapsed": false,
+            "unlinkedCollapsed": true
           }
-        ]
+        }
+      },
+      {
+        "id": "0558143f8bf2fdad",
+        "type": "leaf",
+        "state": {
+          "type": "side-panel-control-view",
+          "state": {}
+        }
       }
     ],
-    "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "currentTab": 1
   },
   "active": "d006fd0ee76808b3",
   "lastOpenFiles": [
-    "Parcialito 4/Algoritmos sobre grafos.md",
     "Parcialito 4/Recorridos sobre grafos.md",
-    "Ideas TP2.md",
+    "Parcialito 4/Parcialito 4.md",
+    "Parcialito 4/Algoritmos sobre grafos.md",
     "Parcialito 4/p4.pdf",
+    "Ideas TP2.md",
     "Parcialito 4/Preguntas teoricas.md",
     "Untitled.md",
     "Untitled 1.md",
-    "Parcialito 4/Parcialito 4.md",
     "Parcialito 4/Pasted image 20210720155224.png",
     "BFS.md"
   ]

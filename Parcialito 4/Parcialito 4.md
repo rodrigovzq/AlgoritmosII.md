@@ -6,8 +6,7 @@ title: Ejercicios
 # Ejercicios
 ## Prácticos
 ### Dado un grafo (viene como : lista de listas, matriz de incidencia, matriz de adyacencia, dibujo). Encontrar el **árbol de tendido mínimo**. 
-```
- PRIM
+[[Algoritmos sobre grafos#Prim|PRIM]]
 	- Empieza de algun vertice y a partir de las aristas que va descubriendo de ese vertice y los siguientes vertices que encuentre. Va a ir trazando nuevas aristas a nuevos vertices que aun no haya vistado. Evita crear ciclos evitando volver a unir aristas ya visitadas.
 	- Logra que sea minimo usando las aristas de menor valor dentro de las conocidas. Usa una estructura de *heap de minimos*. (Dibujar heap como abstracto, no hace falta explicitar estructura).
 	1. Elegir vertice y agregar al heap todas las aristas adyacentes al vertice.
@@ -15,13 +14,12 @@ title: Ejercicios
 		- Si desencolamos algo ya visitado, no hay que agregar la arista hacia un vertice ya visitado porque estamos creando un *ciclo*. 
 	3. Repetir hasta que esten todos visitados.
 	4. Desencolar lo que queda en el heap.?
- KRUSKAL
+ [[Algoritmos sobre grafos#Kruskal|KRUSKAL]]
 	- Ordenar aristas por peso. -> siempre tratar de incluir las aristas de menor peso.
 	- Evita generar ciclos.
 	1. Ordenar las aristas de menor a mayor y desencolar arista agregada a la lista
 	2. *Union/Find*-> find de 2 vertices y preguntar si estan en el mismo arbolito. Sino **unir**. Si estaban unidos, **nada**.
 	3. Repetir hasta que la cantidad de aristas sea uno menos que la cantidad de vertices.
-``` 
 ### Backtracking
 #### Implementar un algoritmo que reciba un grafo, un vertice $v$ y otro $w$, y determine (utilizando backtracking) la cantidad de caminos simples diferentes que hay desde $v$ a $w$.
 ```python
